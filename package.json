@@ -17,5 +17,9 @@
     "nodemon": "^1.18.4",
     "popper.js": "^1.14.3",
     "pug": "2.0.0-beta11"
-  }
+  },
+  "author": "azizsallam",
+  "license": "ISC"
 }
+
+
