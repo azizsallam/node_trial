@@ -43,14 +43,13 @@ block content
         input(type='text',id='zaftot',name="zaftot" ,onKeyup="myFunc(this.value)" autofocus="autofocus") 
         input(type='submit',  value='Submit')  
      div   
-       
         select(name='dropdown' id="myselect" size="4" ,onClick="myclick()",style="margin-left:40px" )
           //-option 
-         
           //-a.btn.btn-lg( id="koka",href="../search" ) go
           //- <a href="javascript:document.getElementById('firstName').focus()">Go to first name</a>
   script.
-         function myclick(){ 
+        var aa =!{JSON.stringify(optos)}
+        function myclick(){ 
             var t=$("#myselect").val().toString();
              $("#zaftot").val(t);
              $("#zaftot").focus();
@@ -69,14 +68,12 @@ block content
                    }
                  }
               }
-
          function myFunc(inp){
             $("#myselect").show();
-           
-              memo(); //clear list before initiatig new one
+            memo(); //clear list before initiatig new one
            if (inp.length >0){
             //alert(inp +'----hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
-            var aa =!{JSON.stringify(optos)}
+            //    var aa =!{JSON.stringify(optos)}
             var uu =inp.trim().toLowerCase();
              for (i = 0; i < aa.length; i++) {
               var  tt =aa[i].trim().toLowerCase();
@@ -89,5 +86,6 @@ block content
              };
          };
         };
-
-         
+          //- var id_value = $('.my_class').$(this).attr('id'); //get id value
+          //- var name_value = $('.my_class').$(this).attr('name'); //get name value
+          //- var value = $('.my_class').$(this).attr('value'); 
