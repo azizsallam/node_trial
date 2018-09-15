@@ -18,6 +18,15 @@
     "popper.js": "^1.14.3",
     "pug": "2.0.0-beta11"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/azizsallam/drpdown-pug.git"
+  },
   "author": "azizsallam",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azizsallam/drpdown-pug/issues"
+  },
+  "homepage": "https://github.com/azizsallam/drpdown-pug#readme"
+
 }
