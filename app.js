@@ -20,6 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 ///////////////////  the next line how to call bootstrap files in yuor view ///////////////////
 app.use('/scripts', express.static(__dirname + '/node_modules/bootstrap/dist/'));
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 //////////////////////////////////
 
 app.use('/', indexRouter);

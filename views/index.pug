@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-   style.
+  //- p Welcome to #{title}
+  style.
     input[type=text], select {
-    width: 30%;
+    width: 20%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -27,19 +27,67 @@ block content
     background-color: #45a049;
     }
     div {
-    border-radius: 5px;
+    border-radius: 1px;
     background-color: #f2f2f2;
     padding: 20px; }
   link(rel='stylesheet', href='/scripts/css/bootstrap.css')
   script(src="/scripts/js/bootstrap.min.js")
-   h3 Choose Your Skill
-   - var  optos = skills
+  //-script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+  script(src="/jquery/jquery.js")
+  h3 Choose Your Skill
+  - var  optos = skills
   div
     form(action='/Skill' method="post")
-         label(for='skill') Skills 
-         select(name='dropDown', id='')
-           each skill in  optos 
-                 option=skill
-         input(type='submit', value='Submit')         
+     div
+        label Enter- 
+        input(type='text',id='zaftot',name="zaftot" ,onKeyup="myFunc(this.value)" autofocus="autofocus") 
+        input(type='submit',  value='Submit')  
+     div   
+       
+        select(name='dropdown' id="myselect" size="4" ,onClick="myclick()",style="margin-left:40px" )
+          //-option 
+         
+          //-a.btn.btn-lg( id="koka",href="../search" ) go
+          //- <a href="javascript:document.getElementById('firstName').focus()">Go to first name</a>
+  script.
+         function myclick(){ 
+            var t=$("#myselect").val().toString();
+             $("#zaftot").val(t);
+             $("#zaftot").focus();
+             $("#myselect").hide();
+            /// alert(t);
+         };
+         function memo(){ 
+           /// remove  all items of list
+            var x = document.getElementById("myselect");
+            while(true){ 
+            if (x.length > 0) {
+              x.remove(x.length-1);
+                   }
+                   else{
+                     break;
+                   }
+                 }
+              }
 
-  
+         function myFunc(inp){
+            $("#myselect").show();
+           
+              memo(); //clear list before initiatig new one
+           if (inp.length >0){
+            //alert(inp +'----hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
+            var aa =!{JSON.stringify(optos)}
+            var uu =inp.trim().toLowerCase();
+             for (i = 0; i < aa.length; i++) {
+              var  tt =aa[i].trim().toLowerCase();
+              //var y =tt.substr(0,uu.length);
+              //alert(uu);
+              //if(tt.substr(0,uu.length))===uu {  // substr() not working i dont know
+                if(tt.indexOf(uu)>-1){ 
+                  $('#myselect').append('<option>' + aa[i] + '</option>');
+                };
+             };
+         };
+        };
+
+         
