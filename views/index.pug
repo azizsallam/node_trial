@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+   //-p Welcome to #{title}
    style.
     input[type=text], select {
     width: 30%;
@@ -32,14 +32,26 @@ block content
     padding: 20px; }
   link(rel='stylesheet', href='/scripts/css/bootstrap.css')
   script(src="/scripts/js/bootstrap.min.js")
-   h3 Choose Your Skill
-   - var  optos = skills
+  //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+  script(src="/jquery/jquery.js")
+  //-script(src='/node_modules/jquery/dist/jquery.min.js')
+   
+  h3 Choose Your Skill
+  - var  optos = skills
   div
     form(action='/Skill' method="post")
          label(for='skill') Skills 
-         select(name='dropDown', id='')
-           each skill in  optos 
-                 option=skill
-         input(type='submit', value='Submit')         
-
-  
+         select(name='dropDown', id='zeft' )
+            each skill in  optos 
+                  option=skill
+         input#zaftot(type='submit', value='Submit')  
+        
+  script.
+        var x = document.getElementById("zaftot");
+        if (x.addEventListener) {                    // For all major browsers, except IE 8 and earlier
+          x.addEventListener("click", myFunction);
+          } 
+          else if (x.attachEvent) {                  // For IE 8 and earlier versions
+           x.attachEvent("onclick", myFunction);
+          }
+        
