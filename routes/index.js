@@ -13,7 +13,7 @@ router.get("/", function (req, res) {
  router.post("/Skill" , function(req, res){
        console.log(req.body);
        res.render('Skill',{
-       skill: req.body.dropdown
+       skill: req.body.zaftok
    });
 });
 
