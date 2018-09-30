@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-   //-p Welcome to #{title}
-   style.
+  //- p Welcome to #{title}
+  style.
     input[type=text], select {
-    width: 30%;
+    width: 20%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -13,9 +13,20 @@ block content
     border-radius: 4px;
     box-sizing: border-box;
     }
+
     input[type=submit] {
     width: 10%;
     background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+     input[type=button] {
+    width: 10%;
+    background-color: magenta;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -27,31 +38,94 @@ block content
     background-color: #45a049;
     }
     div {
-    border-radius: 5px;
+    border-radius: 1px;
     background-color: #f2f2f2;
     padding: 20px; }
   link(rel='stylesheet', href='/scripts/css/bootstrap.css')
   script(src="/scripts/js/bootstrap.min.js")
-  //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+  //-script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
   script(src="/jquery/jquery.js")
-  //-script(src='/node_modules/jquery/dist/jquery.min.js')
-   
   h3 Choose Your Skill
   - var  optos = skills
   div
     form(action='/Skill' method="post")
-         label(for='skill') Skills 
-         select(name='dropDown', id='zeft' )
-            each skill in  optos 
-                  option=skill
-         input#zaftot(type='submit', value='Submit')  
-        
+     div
+        label Enter- 
+        input(type='text',id='zaftot',name="zaftok" ,onKeyup="myFunc(this.id)", autofocus="autofocus", onfocus='myfocus()') 
+        input(type='button',id="colu",onClick="mycolu()" , value='clear')  
+        input(type='submit',id="subo" , value='Submit')  
+     div   
+        select(name="dropdown", id="myselect" size="4" ,onClick="myclick()",style="margin-left:40px" )
+          //-option 
+          //-a.btn.btn-lg( id="koka",href="../search" ) go
+          //- <a href="javascript:document.getElementById('firstName').focus()">Go to first name</a>
   script.
-        var x = document.getElementById("zaftot");
-        if (x.addEventListener) {                    // For all major browsers, except IE 8 and earlier
-          x.addEventListener("click", myFunction);
-          } 
-          else if (x.attachEvent) {                  // For IE 8 and earlier versions
-           x.attachEvent("onclick", myFunction);
-          }
-        
+                   
+          function myfocus(){
+               $("#myselect").hide();
+               $("#subo").hide();
+               $("#colu").hide();
+             }; 
+         ///////////////////////////////////     
+          function myFunc (){
+          var arr =!{JSON.stringify(optos)}
+          var inp = $('#zaftot').val(); 
+          var pp =[];
+          if(inp.trim().length===0) {
+             $("#myselect").hide();
+              $("#colu").hide();
+             }
+          ///////////////////////////////////
+          ///////////////////////////////////
+          if (inp.length >0){
+            $("#subo").hide();
+            $("#colu").show();
+            $("#myselect").show();
+            /////////////////////////////
+            var x = document.getElementById('myselect');
+            while(true){ 
+            if (x.length > 0) {
+              x.remove(x.length-1);
+                   }else{break; } }
+            //////////////////////////////
+             var uu =inp.trim().toLowerCase();
+             for (i = 0; i < arr.length; i++) {
+               var  tt =arr[i].trim().toLowerCase();
+                //if(tt.substr(0,uu.length))===uu {  // substr() not working i dont know
+                if(tt.indexOf(uu)>-1){ 
+                 $("#myselect").append('<option>' + arr[i] + '</option>');
+                  pp.push(arr[i]);       
+                };
+                };
+               if(pp.length == 1){
+                   $("#myselect").val(pp);
+                    myclick();
+                   //alert(pp[0]);
+                 };
+            }else{
+             $("#myselect").hide();
+             $("#subo").hide();
+             $("#colu").hide();
+            }
+          };
+          function mycolu(){ 
+             $('#zaftot').val('');
+             $("#myselect").hide();
+             $("#subo").hide();
+             $("#colu").hide();
+             $('#zaftot').focus();
+               document.getElementById('zaftot').readOnly=false;
+             };
+          ////////////////////////////////////////
+          function myclick(){ 
+            var t=$("#myselect").val().toString();
+             $('#zaftot').val(t);
+             $('#zaftot').focus();
+             $("#myselect").hide();
+             $("#subo").show();
+             $("#colu").show();
+             document.getElementById('zaftot').readOnly=true;
+             
+            };
+          
+         
