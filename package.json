@@ -18,6 +18,19 @@
     "popper.js": "^1.14.3",
     "pug": "2.0.0-beta11"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/azizsallam/node_trial.git"
+  },
   "author": "azizsallam",
+<<<<<<< HEAD
   "license": "ISC"
+=======
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azizsallam/node_trial/issues"
+  },
+  "homepage": "https://github.com/azizsallam/node_trial#readme"
+
+>>>>>>> dd10836f9c555b2ce27b7307f1c2eb0d5defff67
 }

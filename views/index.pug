@@ -3,6 +3,10 @@ extends layout
 block content
   h1= title
   //- p Welcome to #{title}
+<<<<<<< HEAD
+=======
+  //-//////////////////// Abd El aziz elsawy sallam cairo egypt  //////////// 
+>>>>>>> dd10836f9c555b2ce27b7307f1c2eb0d5defff67
   style.
     input[type=text], select {
     width: 20%;
@@ -51,6 +55,7 @@ block content
     form(action='/Skill' method="post")
      div
         label Enter- 
+<<<<<<< HEAD
         input(type='text',id='zaftot',name="zaftok" ,onKeyup="myFunc(this.id)", autofocus="autofocus", onfocus='myfocus()') 
         input(type='button',id="colu",onClick="mycolu()" , value='clear')  
         input(type='submit',id="subo" , value='Submit')  
@@ -66,13 +71,43 @@ block content
                $("#subo").hide();
                $("#colu").hide();
              }; 
+=======
+        input(type='text',id='zaftot',name="zaftok" ,onKeyup="myFunc()" autofocus="autofocus" , onfocus='myfocus()') 
+        input(type='button',id="colu",onClick="myclear()" , value='clear')  
+        input(type='submit',id="subo" , value='Submit')  
+     div   
+        select(name="dropdown", id="myselect" size="6" ,onClick="myclick()",style="margin-left:40px" )
+          //-option 
+          //-a.btn.btn-lg( id="koka",href="../search" ) go
+          //- <a href="javascript:document.getElementById('zaftot').focus()">Go to first name</a>
+  script.
+               ////////////////////// Abd El aziz elsawy sallam cairo egypt  //////////// 
+          function myfocus(){
+             var arr =!{JSON.stringify(optos)}     
+             $('#zaftot').val('');
+             $("#subo").hide();
+             $("#colu").hide();
+              for (i = 0; i < arr.length; i++) {
+               var  tt =arr[i].trim().toLowerCase();
+                //if(tt.substr(0,uu.length))===uu {  // substr() not working i dont know
+                $("#myselect").append('<option>' + arr[i] + '</option>');
+                };
+               $("#subo").hide();
+               $("#colu").hide();
+                document.getElementById('zaftot').readOnly=false;
+                }; 
+>>>>>>> dd10836f9c555b2ce27b7307f1c2eb0d5defff67
          ///////////////////////////////////     
           function myFunc (){
           var arr =!{JSON.stringify(optos)}
           var inp = $('#zaftot').val(); 
           var pp =[];
           if(inp.trim().length===0) {
+<<<<<<< HEAD
              $("#myselect").hide();
+=======
+            $("#myselect").hide();
+>>>>>>> dd10836f9c555b2ce27b7307f1c2eb0d5defff67
               $("#colu").hide();
              }
           ///////////////////////////////////
@@ -97,12 +132,17 @@ block content
                   pp.push(arr[i]);       
                 };
                 };
+<<<<<<< HEAD
                if(pp.length == 1){
+=======
+               if(pp.length === 1){
+>>>>>>> dd10836f9c555b2ce27b7307f1c2eb0d5defff67
                    $("#myselect").val(pp);
                     myclick();
                    //alert(pp[0]);
                  };
             }else{
+<<<<<<< HEAD
              $("#myselect").hide();
              $("#subo").hide();
              $("#colu").hide();
@@ -115,12 +155,49 @@ block content
              $("#colu").hide();
              $('#zaftot').focus();
                document.getElementById('zaftot').readOnly=false;
+=======
+             var arr =!{JSON.stringify(optos)}     
+           for (i = 0; i < arr.length; i++) {
+               var  tt =arr[i].trim().toLowerCase();
+                //if(tt.substr(0,uu.length))===uu {  // substr() not working i dont know
+                $("#myselect").append('<option>' + arr[i] + '</option>');
+                };
+               $("#subo").hide();
+               $("#colu").hide();
+                document.getElementById('zaftot').readOnly=false;
+                 $("#myselect").show();
+                $('#zaftot').focus();
+              }
+             };
+             function myclear(){ 
+               var x = document.getElementById('myselect');
+            while(true){ 
+            if (x.length > 0) {
+              x.remove(x.length-1);
+                   }else{break; } }
+
+             var arr =!{JSON.stringify(optos)}     
+             $('#zaftot').val('');
+             for (i = 0; i < arr.length; i++) {
+               var  tt =arr[i].trim().toLowerCase();
+                $("#myselect").append('<option>' + arr[i] + '</option>');
+                };
+               $("#subo").hide();
+               $("#colu").hide();
+               document.getElementById('zaftot').readOnly=false;
+                $("#myselect").show();
+                $('#zaftot').focus();
+
+>>>>>>> dd10836f9c555b2ce27b7307f1c2eb0d5defff67
              };
           ////////////////////////////////////////
           function myclick(){ 
             var t=$("#myselect").val().toString();
              $('#zaftot').val(t);
+<<<<<<< HEAD
              $('#zaftot').focus();
+=======
+>>>>>>> dd10836f9c555b2ce27b7307f1c2eb0d5defff67
              $("#myselect").hide();
              $("#subo").show();
              $("#colu").show();
